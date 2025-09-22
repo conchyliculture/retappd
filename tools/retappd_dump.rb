@@ -469,7 +469,7 @@ if options[:update]
   last = u.get_last_checkin_from_db()
   u.get_all_beers(options[:username], start_date: last)
 else
-  puts "doing nothing lol"
+  u = Retappd.new(options[:database], ENV['RETAPPD_CLIENT_ID'], ENV['RETAPPD_CLIENT_SECRET'], ENV['RETAPPD_DEVICE_ID'] || nil)
+  u.login(options[:username], options[:password])
+  u.get_all_beers(options[:username])
 end
-#b = u.get_beer_from_api(3_113_282)
-#u.get_user_infos()

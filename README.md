@@ -34,6 +34,8 @@ and then run the import script.
 
 You will miss some of the information that the Dashboard uses, though (such as Breweries locations).
 
+The file in `doc/retappd_test.sqlite` will show you what it would look like if you were to, say, find this information another way....
+
 
 ### If you have already a working sqlite file with all your data exported
 
@@ -43,5 +45,6 @@ $ mkdir data
 $ vim .env
 RETAPPD_USERNAME="username"
 RETAPPD_ALLOWED_HOSTS="retappd.domain.com,10.0.5.2"
+$ cd docker
 # docker compose up -d
 ```
