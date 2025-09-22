@@ -1,0 +1,6 @@
+.env
+push.sh
+data
+test_data
+*.sqlite
+.creds

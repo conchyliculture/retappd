@@ -1,0 +1,17 @@
+services:
+  retappd:
+    container_name: retappd
+    build:
+      context: .
+    restart: always
+    volumes:
+      - ./data:/app/data
+    environment:
+      RETAPPD_ALLOWED_HOSTS: ${RETAPPD_ALLOWED_HOSTS}
+      RETAPPD_USERNAME: ${RETAPPD_USERNAME}
+      RETAPPD_PASSWORD: ${RETAPPD_PASSWORD}
+      RETAPPD_CLIENT_ID: ${RETAPPD_CLIENT_ID}
+      RETAPPD_CLIENT_SECRET: ${RETAPPD_CLIENT_SECRET}
+      RETAPPD_DEVICE_ID: ${RETAPPD_DEVICE_ID}
+    ports:
+      - 3005:4567
