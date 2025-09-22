@@ -18,6 +18,10 @@ configure do
   set :home_coords, { lat: (ENV['RETAPPD_HOME_LAT'] || 50.8467).to_f, lng: (ENV['RETAPPD_HOME_LAT'] || 4.3525).to_f }
 end
 
+unless File.exist?(settings.database)
+  raise StandardError, "No database file found at #{settings.database}"
+end
+
 def db
   @db ||= SQLite3::Database.new(settings.database)
   @db.results_as_hash = true
