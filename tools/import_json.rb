@@ -85,8 +85,9 @@ JSON.parse(File.read(json_to_import)).each do |beer|
     [beer['brewery_id'], beer['brewery_name'], beer['brewery_url'], beer['brewery_country'], brewery_json.to_json]
   )
   db.execute("INSERT OR IGNORE INTO beer (
-                id, name, label_url, abv, ibu, style, description, rating_score
-               ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", [beer['bid'], beer['beer_url'], beer['beer_abv'], beer['beer_ibu'], beer['beer_type'], beer['global_rating_score']])
+                id, name, brewery_id, label_url, abv, ibu, style, description, rating_score
+               ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [beer['bid'], beer['beer_name'], beer['brewery_id'], nil, beer['beer_abv'], beer['beer_ibu'], beer['beer_type'], beer['global_rating_score']])
+
   location_json = {
     "venue_address" => '',
     "venue_city" => beer['venue_city'],

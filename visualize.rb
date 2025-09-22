@@ -86,9 +86,11 @@ get '/api/top_beers' do
   ")
 
   res = beers.map { |beer|
-    bj = JSON.parse(beer['brewery_contact'])
-    beer['brewery_url'] = bj['url']
-    beer['url'] = "https://untappd.com/b/#{beer['beer_slug']}/#{beer['beer_id']}"
+    if beer['brewery_contact']
+      bj = JSON.parse(beer['brewery_contact'])
+      beer['brewery_url'] = bj['url']
+      beer['url'] = "https://untappd.com/b/#{beer['beer_slug']}/#{beer['beer_id']}"
+    end
     beer
   }.to_json
   res
