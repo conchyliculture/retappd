@@ -439,7 +439,7 @@ class BeerDashboard {
       map.fitBounds(group.getBounds().pad(0.1));
     } catch (error) {
       console.error('Error loading Breweries map:', error);
-      document.getElementById('mapbreweries').innerHTML = '<div class="text-center p-5 text-danger">Error loading Breweries map data</div>';
+      document.getElementById('mapbreweries').innerHTML = '<div class="text-center p-5 text-danger">Error loading Breweries map data (expected if data was imported from Json export)</div>';
     }
   }
 

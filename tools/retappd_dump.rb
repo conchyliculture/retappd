@@ -240,15 +240,17 @@ class Retappd
     @db = RetappdDB.new(db_file)
 
     @headers = {
-      "x-untappd-app-version" => "4.5.10",
-      "x-untappd-app" => "android",
-      "x-react-native" => "1",
       "accept-language" => "en",
       "accept-encoding" => "gzip",
       "content-type" => "application/x-www-form-urlencoded",
       "accept" => "application/json; charset=utf-8",
       "user-agent" => "okhttp/4.9.3"
     }
+    if @device_id
+      @headers["x-untappd-app-version"] = "4.5.10"
+      @headers["x-untappd-app"] = "android"
+      @headers["x-react-native"] = "1"
+    end
   end
 
   def load_creds()
@@ -323,7 +325,10 @@ class Retappd
 
     raise StandardError, "Error validating username, got #{j}" unless uid.to_s =~ /^[0-9]+$/
 
-    data = "user_name=#{username}&user_password=#{password}&device_udid=#{@device_id}&device_name=Pixel%205&device_version=15&device_platform=Android&app_version=4.5.10&multi_account=true"
+    data = "user_name=#{username}&user_password=#{password}&multi_account=true"
+    if @device_id
+      data = "#{data}&device_udid=#{@device_id}&device_name=Pixel%205&device_version=15&device_platform=Android&app_version=4.5.10"
+    end
 
     j = cached_api("/xauth", post_data: data)
     @token = j["access_token"]
@@ -459,7 +464,7 @@ if options[:update]
     puts "Called with --update but #{options[:database]} doesn't exist"
     exit
   end
-  u = Retappd.new(options[:database], ENV['RETAPPD_CLIENT_ID'], ENV['RETAPPD_CLIENT_SECRET'], ENV['RETAPPD_DEVICE_ID'])
+  u = Retappd.new(options[:database], ENV['RETAPPD_CLIENT_ID'], ENV['RETAPPD_CLIENT_SECRET'], ENV['RETAPPD_DEVICE_ID'] || nil)
   u.login(options[:username], options[:password])
   last = u.get_last_checkin_from_db()
   u.get_all_beers(options[:username], start_date: last)
