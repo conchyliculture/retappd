@@ -6,10 +6,10 @@ This is a simple Dashboard to display stats about my beer-based alcoholism.
 
 ## 🚨⚠️🚨WARNING 🚨⚠️🚨 This was at least 70% VibeCoded.
 
-I do not know a thing about HTML/CSS or Javascript and let the AI do its thing. If it's gross, don't blame me.o
 
+I do not know a thing about HTML/CSS or Javascript and let the AI do its thing. If it's gross, don't blame me.
 
-## Installing
+## Installing
 
 ### If you have already a working sqlite file with all your data pulled out of somewhere
 
