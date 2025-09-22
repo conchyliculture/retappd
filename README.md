@@ -8,6 +8,17 @@ This is a simple Dashboard to display stats about my beer-based alcoholism.
 
 I do not know a thing about HTML/CSS or Javascript and let the AI do its thing. If it's gross, don't blame me.
 
+## Screenshots
+
+![Screenshot 1](doc/sc1.jpg)
+
+![Screenshot 2](doc/sc2.jpg)
+
+![Screenshot 3](doc/sc3.jpg)
+
+![Screenshot 4](doc/sc4.jpg)
+
+
 ## Installing
 
 ### If you have already a working sqlite file with all your data exported
