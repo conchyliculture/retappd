@@ -4,6 +4,8 @@
 
 This is a simple Dashboard to display stats about my beer-based alcoholism.
 
+Heavily inspired by [Sjaakbanaan's untappd-data-visualised project](https://github.com/sjaakbanaan/untappd-data-visualised/)
+
 ## 🚨⚠️🚨WARNING 🚨⚠️🚨 This was at least 70% VibeCoded.
 
 I do not know a thing about HTML/CSS or Javascript and let the AI do its thing. If it's gross, don't blame me.
